@@ -5,7 +5,7 @@ FROM alpine as fetcher
 RUN apk add --no-cache git openssh
 
 RUN mkdir -p ~/.ssh && \
-    ssh-keyscan github.com >> ~/.ssh/id_rsa.pub
+    ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 RUN --mount=type=ssh git clone git@github.com:alicja82/pawcho6.git /app
 
